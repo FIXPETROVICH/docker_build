@@ -1,8 +1,9 @@
+FROM alpine:latest
 
-FROM python:2.7.17
-LABEL maintainer="fixpetrovich@gmail.com"
+RUN apk add python3 --no-cache && rm -f /var/cache/apk/*
 
-COPY ./server.py /
+COPY ./server1.py /
 
+CMD ["python3", "./server1.py"]
 
-CMD ["python","./server.py"]
+EXPOSE 5150
